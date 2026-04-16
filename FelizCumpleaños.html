@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños de mi Padre</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <!-- Animaciones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        body {
+            background-color: #fff5f5;
+        }
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1529336953121-a0a0c3c6b9c2');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .overlay {
+            background: rgba(0,0,0,0.4);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .gallery img {
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        iframe {
+            display: none;
+        }
+        .contador {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+
+<body onclick="iniciarMusica()">
+
+<!-- 🎵 Música -->
+<iframe id="youtubePlayer" width="0" height="0"
+    src=""
+    frameborder="0"
+    allow="autoplay">
+</iframe>
+
+<script>
+let musicaIniciada = false;
+
+function iniciarMusica() {
+    if (!musicaIniciada) {
+        document.getElementById("youtubePlayer").src =
+        "https://www.youtube.com/embed/ixZO0j_LCj4?autoplay=1&loop=1&playlist=ixZO0j_LCj4";
+        musicaIniciada = true;
+    }
+}
+</script>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <span class="navbar-brand">🎂 HOY FESTEJAMOS TU DIA PADRE</span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="overlay animate__animated animate__fadeIn">
+        <h1 class="display-4">¡Feliz Cumpleaños Padre!</h1>
+        <p class="lead">Un día lleno de amor y alegría en familia 💓</p>
+    </div>
+</section>
+
+<!-- CONTADOR -->
+<section class="section text-center">
+    <h2 class="title">Hoy cumples</h2>
+    <div id="edad" class="contador">0</div>
+    <p class="subtitle">años 🎂</p>
+</section>
+
+<script>
+let edadFinal = 61;
+let contadorIniciado = false;
+
+function animarContador() {
+    let contador = document.getElementById("edad");
+    let valor = 0;
+
+    let intervalo = setInterval(() => {
+        valor++;
+        contador.textContent = valor;
+
+        if (valor >= edadFinal) {
+            clearInterval(intervalo);
+        }
+    }, 60);
+}
+
+window.addEventListener("scroll", () => {
+    let seccion = document.getElementById("edad").getBoundingClientRect().top;
+    let pantalla = window.innerHeight;
+
+    if (seccion < pantalla && !contadorIniciado) {
+        animarContador();
+        contadorIniciado = true;
+    }
+});
+</script>
+
+<!-- MENSAJE -->
+<section class="section">
+    <div class="container has-text-centered animate__animated animate__fadeInUp">
+        <h2 class="title">Con amor de tu familia 👨‍👩‍👧‍👦</h2>
+        <p>
+            Hoy celebramos tu vida y todos los momentos hermosos que compartimos contigo.
+            Gracias por ser tan especial. Este día queremos recordarte lo importante que eres para nosotros, gracias por ser nuestro padre. 💕
+        </p>
+    </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section">
+    <div class="container">
+        <h2 class="title has-text-centered">📸 Recuerdos</h2>
+
+        <div class="row gallery g-3">
+
+            <div class="col-md-4"><img src="https://i.imgur.com/DwKmb0e.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/DwKmb0e.png'"></div>
+            <div class="col-md-4"><img src="https://i.imgur.com/arhnMjk.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/arhnMjk.png'"></div>
+            <div class="col-md-4"><img src="https://i.imgur.com/Pc85SqF.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/Pc85SqF.png'"></div>
+
+            <div class="col-md-4"><img src="https://i.imgur.com/KUzsr7L.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/KUzsr7L.png'"></div>
+            <div class="col-md-4"><img src="https://i.imgur.com/qzVhhj0.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/qzVhhj0.png'"></div>
+            <div class="col-md-4"><img src="https://i.imgur.com/TSPCcNR.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/TSPCcNR.png'"></div>
+
+            <div class="col-md-4"><img src="https://i.imgur.com/V5XOEuJ.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/V5XOEuJ.png'"></div>
+            <div class="col-md-4"><img src="https://i.imgur.com/CrxP8Rq.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/CrxP8Rq.png'"></div>
+            <div class="col-md-4"><img src="https://i.imgur.com/Px1bTYU.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/Px1bTYU.png'"></div>
+
+            <div class="col-md-4"><img src="https://i.imgur.com/zQ2jx9h.jpg" class="img-fluid" onerror="this.src='https://i.imgur.com/zQ2jx9h.png'"></div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer has-text-centered">
+    <p>Con todo nuestro cariño 💖</p>
+</footer>
+
+</body>
+</html>
